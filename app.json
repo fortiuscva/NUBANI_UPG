@@ -1,0 +1,37 @@
+{
+  "id": "476b3f8a-f963-4dc8-b268-78f041abfeba",
+  "name": "NUBANI_UPG",
+  "publisher": "SSI",
+  "version": "1.0.0.49",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "7a129d06-5fd6-4fb6-b82b-0bf539c779d0",
+      "name": "_Exclude_Bank Deposits",
+      "version": "21.4.52563.52939",
+      "publisher": "Microsoft"
+    }
+  ],
+  "screenshots": [],
+  "platform": "23.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 99999
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },  
+  
+  "runtime": "14.3"
+}
