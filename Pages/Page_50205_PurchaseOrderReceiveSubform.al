@@ -700,11 +700,8 @@ page 50205 "Purchase Order Receive Subform"//14005151
 
 
     procedure ShowTracking()
-    var
-        TrackingForm: Page "Order Tracking";
     begin
-        TrackingForm.SetPurchLine(Rec);
-        TrackingForm.RUNMODAL;
+        Rec.ShowOrderTracking();
     end;
 
 
