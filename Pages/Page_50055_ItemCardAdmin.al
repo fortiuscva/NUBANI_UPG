@@ -724,7 +724,7 @@ page 50055 "Item Card - Admin"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromItem(Rec, ItemAvailFormsMgt.ByEvent);
+                            ItemAvailFormsMgt.ShowItemAvailabilityFromItem(Rec, ItemAvailabilityType::"Event");
                         end;
                     }
                     action(Period)
@@ -770,7 +770,7 @@ page 50055 "Item Card - Admin"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromItem(Rec, ItemAvailFormsMgt.ByBOM);
+                            ItemAvailFormsMgt.ShowItemAvailabilityFromItem(Rec, ItemAvailabilityType::BOM);
                         end;
                     }
                     // action(Timeline)
@@ -1527,7 +1527,7 @@ page 50055 "Item Card - Admin"
         SkilledResourceList: Page "Skilled Resource List";
         CalculateStdCost: Codeunit "Calculate Standard Cost";
         ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
-
+        ItemAvailabilityType: Enum "Item Availability Type";
         TimeBucketEnable: Boolean;
 
         SafetyLeadTimeEnable: Boolean;
