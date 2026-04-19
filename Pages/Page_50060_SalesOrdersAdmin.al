@@ -1077,7 +1077,7 @@ page 50060 "Sales Orders-Admin"
                         DemandOverview: Page "Demand Overview";
                     begin
                         DemandOverview.SetCalculationParameter(true);
-                        DemandOverview.Initialize(0D, 1, Rec."No.", '', '');
+                        DemandOverview.SetParameters(0D, 1, Rec."No.", '', '');
                         DemandOverview.RUNMODAL;
                     end;
                 }
