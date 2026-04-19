@@ -369,7 +369,7 @@ page 50054 "Item List- Admin"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromItem(Rec, ItemAvailFormsMgt.ByEvent);
+                            ItemAvailFormsMgt.ShowItemAvailabilityFromItem(Rec, ItemAvailabilityType::"Event");
                         end;
                     }
                     action(Period)
@@ -419,7 +419,7 @@ page 50054 "Item List- Admin"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromItem(Rec, ItemAvailFormsMgt.ByBOM);
+                            ItemAvailFormsMgt.ShowItemAvailabilityFromItem(Rec, ItemAvailabilityType::BOM);
                         end;
                     }
                     // action(Timeline)
@@ -1734,6 +1734,7 @@ page 50054 "Item List- Admin"
         SkilledResourceList: Page "Skilled Resource List";
         CalculateStdCost: Codeunit "Calculate Standard Cost";
         ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
+        ItemAvailabilityType: Enum "Item Availability Type";
         "--POPN--": Integer;
         //greNote: Record Note;//14005020 B2BUPG
         EntryNo: Integer;

@@ -181,7 +181,7 @@ page 50017 "Inventory Valuation"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromItem(Rec, ItemAvailFormsMgt.ByEvent);
+                            ItemAvailFormsMgt.ShowItemAvailabilityFromItem(Rec, ItemAvailabilityType::"Event");
                         end;
                     }
                     action(Period)
@@ -231,7 +231,7 @@ page 50017 "Inventory Valuation"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromItem(Rec, ItemAvailFormsMgt.ByBOM);
+                            ItemAvailFormsMgt.ShowItemAvailabilityFromItem(Rec, ItemAvailabilityType::BOM);
                         end;
                     }
                     // action(Timeline)
@@ -1535,6 +1535,7 @@ page 50017 "Inventory Valuation"
         SkilledResourceList: Page "Skilled Resource List";
         CalculateStdCost: Codeunit "Calculate Standard Cost";
         ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
+        ItemAvailabilityType: Enum "Item Availability Type";
 
         //greNote: Record Note;//B2BUPG
         EntryNo: Integer;

@@ -101,7 +101,7 @@ pageextension 50058 "Acc. Payables CoordinatorRCExt" extends "Acc. Payables Coor
         //         Image = Report;
         //     }
         // }
-        modify("Vendor &Document Nos.")
+        /* modify("Vendor &Document Nos.")
         {
             CaptionML = ENU = 'Vendor &Document Nos.',
                                  ESM = '&N§ documento proveedor',
@@ -121,8 +121,8 @@ pageextension 50058 "Acc. Payables CoordinatorRCExt" extends "Acc. Payables Coor
                                  ESM = 'N§ serie nota cr‚dito &compra',
                                  FRC = 'Num‚ros de notes de cr‚dit d ac&hat',
                                  ENC = 'Purchase &Credit Memo Nos.';
-        }
-        addafter("Purchase &Credit Memo Nos.")  //10109 B2BUPG
+        } */
+        addafter("Pa&yments on Hold")  //10109 B2BUPG
         {
             // action("Vendor 1099 Div")
             // {
