@@ -2,6 +2,7 @@ namespace NubaniNubaniUPG.NubaniNubaniUPG;
 using Microsoft.Purchases.Document;
 using Microsoft.Sales.Customer;
 using Microsoft.Sales.Document;
+using Microsoft.Inventory.Tracking;
 
 report 50014 "Create Sales Order from PO"
 {
@@ -51,7 +52,7 @@ report 50014 "Create Sales Order from PO"
                 SalesLine.Validate("Unit of Measure Code", PurchaseLine."Unit of Measure Code");
                 SalesLine.validate("Location Code", PurchaseLine."Location Code");
                 SalesLine.Modify(true);
-
+                CopyReservations(PurchaseLine, SalesLine);
                 LineNo += 10000;
             end;
         }
@@ -92,4 +93,41 @@ report 50014 "Create Sales Order from PO"
         SalesLine: Record "Sales Line";
         LineNo: Integer;
         IsHeaderCreated: Boolean;
+
+    local procedure CopyReservations(PurchLine: Record "Purchase Line"; SalesLine: Record "Sales Line")
+    var
+        FromReservEntry: Record "Reservation Entry";
+        ToReservEntry: Record "Reservation Entry";
+        CreateReservEntry: Codeunit "Create Reserv. Entry";
+    begin
+        FromReservEntry.Reset();
+        FromReservEntry.SetRange("Source Type", Database::"Purchase Line");
+        FromReservEntry.SetRange("Source ID", PurchLine."Document No.");
+        FromReservEntry.SetRange("Source Ref. No.", PurchLine."Line No.");
+        FromReservEntry.SetRange("Source Subtype", 1);
+        if not FromReservEntry.FindSet() then
+            exit;
+
+        repeat
+            Clear(ToReservEntry);
+            ToReservEntry."Lot No." := FromReservEntry."Lot No.";
+            ToReservEntry."Serial No." := FromReservEntry."Serial No.";
+            ToReservEntry."Expiration Date" := FromReservEntry."Expiration Date";
+            ToReservEntry."Reservation Status" := FromReservEntry."Reservation Status";
+
+            CreateReservEntry.CreateReservEntryFor(
+                Database::"Sales Line",
+                1, SalesLine."Document No.", '',
+                0, SalesLine."Line No.",
+                SalesLine."Qty. per Unit of Measure", Abs(FromReservEntry.Quantity),
+                Abs(FromReservEntry."Quantity (Base)"), ToReservEntry);
+
+            CreateReservEntry.SetDates(0D, FromReservEntry."Expiration Date");
+            CreateReservEntry.CreateEntry(
+                SalesLine."No.", SalesLine."Variant Code", SalesLine."Location Code",
+                SalesLine.Description, 0D, SalesLine."Shipment Date", 0,
+                ToReservEntry."Reservation Status");
+
+        until FromReservEntry.Next() = 0;
+    end;
 }
