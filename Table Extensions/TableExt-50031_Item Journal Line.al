@@ -44,6 +44,7 @@ tableextension 50031 ItemJournalLineExt extends "Item Journal Line"
         BinContent: Record "Bin Content";
         Text_AvailToTake: Label '%1 cannot be more than %2 (available to take from bin %3).';
     begin
+        /*
         // NUB1.01 - new function
 
         IF ("Bin Code" <> '') AND
@@ -54,6 +55,7 @@ tableextension 50031 ItemJournalLineExt extends "Item Journal Line"
             IF Quantity > AvailToTake THEN
                 ERROR(Text_AvailToTake, FIELDCAPTION(Quantity), AvailToTake, "Bin Code");
         END;
+        */
     end;
 
     procedure "---NUB1.02---"()
