@@ -76,7 +76,7 @@ pageextension 50004 "Item List Ext" extends "Item List"
 
         addfirst(factboxes)
         {
-            part(ItemPicture; "Item Picture")
+            part(NUBItemPicture; "Item Picture")
             {
                 ApplicationArea = All;
                 Caption = 'Picture';
