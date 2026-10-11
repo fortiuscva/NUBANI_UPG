@@ -36,6 +36,19 @@ pageextension 50055 "Inventory Pick Ext" extends "Inventory Pick"
                 ApplicationArea = All;
             }
         }
+        addafter("Assignment Time")
+        {
+            field("NDS Salesperson Code"; Rec."NDS Salesperson Code")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Salesperson Code field.', Comment = '%';
+            }
+            field("NDS Case Count"; Rec."NDS Case Count")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies the value of the Case Count field.', Comment = '%';
+            }
+        }
     }
     actions
     {
