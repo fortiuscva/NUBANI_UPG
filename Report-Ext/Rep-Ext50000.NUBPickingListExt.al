@@ -47,10 +47,13 @@ reportextension 50000 "NUB Picking List Ext" extends "Picking List"//5752
             column(NoofLines_WhseActivHeader; "Warehouse Activity Header"."No. of Lines")
             {
             }
+            column(ShippingAgentName; ShippingAgentName)
+            { }
         }
         modify("Warehouse Activity Header")
         {
             trigger OnAfterAfterGetRecord()
+            var
             begin
                 //NUB1.01 Start
                 CLEAR(TotalWtVarGbl);
@@ -83,6 +86,9 @@ reportextension 50000 "NUB Picking List Ext" extends "Picking List"//5752
                     SOQtyVarGbl := SalesLineRecGbl.Quantity;
                 END;
                 //NUB1.02 End
+                ShippingAgent.Reset();
+                ShippingAgent.Get("Shipping Agent Code");
+                ShippingAgentName := ShippingAgent.Name;
             end;
         }
         modify(WhseActLine)
@@ -125,6 +131,8 @@ reportextension 50000 "NUB Picking List Ext" extends "Picking List"//5752
         SalesHead: Record "Sales Header";
         WhseActLineExpDate: Date;
         ILERec: Record "Item Ledger Entry";
+        ShippingAgent: Record "Shipping Agent";
+        ShippingAgentName: Text[50];
 
     local procedure EncodeBarcode(InputTxt: Text): Text
     var
