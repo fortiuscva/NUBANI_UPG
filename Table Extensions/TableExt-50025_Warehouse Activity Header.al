@@ -32,6 +32,24 @@ tableextension 50025 WarehouseActivityHeaderExt extends "Warehouse Activity Head
         {
             Description = 'NUB1.03';
         }
+        field(50013; "NDS Salesperson Code"; Code[20])
+        {
+            Caption = 'Salesperson Code';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."Salesperson Code" where("Document Type" = const(Order),
+             "No." = field("Source No.")));
+            Editable = false;
+        }
+        field(50014; "NDS Case Count"; Decimal)
+        {
+            Caption = 'Case Count';
+            FieldClass = FlowField;
+            CalcFormula = sum("Sales Line".Quantity
+                where("Document Type" = const(Order),
+                      "Document No." = field("Source No.")));
+            DecimalPlaces = 0 : 5;
+            Editable = false;
+        }
     }
 
     trigger OnBeforeDelete()
