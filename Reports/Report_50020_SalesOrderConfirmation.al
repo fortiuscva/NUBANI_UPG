@@ -745,6 +745,7 @@ report 50020 "Sales Order Confirmation"
                         CopyTxt := Text000;
 
                     CLEAR(TotCaseCountVarGbl); //NUB1.06
+                    Clear(LineSeq);
                 end;
 
                 trigger OnPreDataItem()
