@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>MSRB</am:Name>
+      <am:Version>15.0.20283.0</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2026-11-10T12:53:52.2660729Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
@@ -2380,8 +2391,8 @@ Fields!LocationFax.Value</Value>
             </Filters>
             <Top>0.03764in</Top>
             <Left>0.1104in</Left>
-            <Height>3.61434cm</Height>
-            <Width>19.38467cm</Width>
+            <Height>3.61435cm</Height>
+            <Width>19.38465cm</Width>
             <Style>
               <FontSize>8pt</FontSize>
             </Style>
@@ -2390,7 +2401,7 @@ Fields!LocationFax.Value</Value>
         <Height>1.54407in</Height>
         <Style />
       </Body>
-      <Width>7.98527in</Width>
+      <Width>7.98606in</Width>
       <Page>
         <PageHeader>
           <Height>3.38132in</Height>
@@ -4497,6 +4508,61 @@ Fields!LocationFax.Value</Value>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
+            <Textbox Name="ShipmentNumberCaption2">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Constant">Sales Order No:</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.10774cm</Top>
+              <Left>12.18998cm</Left>
+              <Height>20.45405pt</Height>
+              <Width>4.3089cm</Width>
+              <ZIndex>56</ZIndex>
+              <Style>
+                <Border />
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="SalesShptHdrNo2">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(51,1)</Value>
+                      <Style>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.10774cm</Top>
+              <Left>16.86929cm</Left>
+              <Height>20.45405pt</Height>
+              <Width>3.41531cm</Width>
+              <ZIndex>57</ZIndex>
+              <Style>
+                <Border />
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style />
         </PageHeader>
@@ -4693,6 +4759,7 @@ Fields!LocationFax.Value</Value>
               </Style>
             </Textbox>
             <Line Name="Line1">
+              <Top>0in</Top>
               <Left>0.33311in</Left>
               <Height>0in</Height>
               <Width>7.34801in</Width>

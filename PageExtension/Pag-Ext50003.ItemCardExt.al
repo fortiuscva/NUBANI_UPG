@@ -1,7 +1,3 @@
-namespace Nubani.Nubani;
-
-using Microsoft.Inventory.Item;
-
 pageextension 50003 "Item Card Ext" extends "Item Card"
 {
     CaptionML = ENU = 'Item Card',
@@ -788,6 +784,16 @@ pageextension 50003 "Item Card Ext" extends "Item Card"
                                  ENC = 'Event';
         }
     }
+    trigger OnOpenPage()
+    var
+        UserSetup: Record "User Setup";
+    begin
+        if UserSetup.Get(UserId()) then
+            CurrPage.Editable(not UserSetup."Item Read Only");
+    end;
+
+
+
     var
         "--FP--": Integer;
         // PostDocCU: Codeunit 14005058;  //B2BUPG
