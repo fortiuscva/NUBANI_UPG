@@ -11,6 +11,11 @@ tableextension 50032 UserSetupExt extends "User Setup"
         field(50006; "Enable Picture Perrmission"; Boolean)
         {
         }
+        field(50011; "Item Read Only"; Boolean)
+        {
+            Caption = 'Item Read Only';
+            DataClassification = CustomerContent;
+        }
         field(60210; "Sales Post Default"; Option)
         {
             Description = ',Ship,Invoice,Ship and Invoice';
