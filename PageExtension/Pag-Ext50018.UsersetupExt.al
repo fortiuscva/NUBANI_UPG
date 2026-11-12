@@ -38,5 +38,13 @@ pageextension 50018 "User setup Ext" extends "User Setup"
                 ApplicationArea = All;
             }
         }
+        addlast(Control1)
+        {
+            field("Item Read Only"; Rec."Item Read Only")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Specifies whether the user can only view Item Card information.';
+            }
+        }
     }
 }
