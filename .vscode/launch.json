@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Sandbox-Dev",
+            "name": "Sandbox-110626",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox_Dev",
+            "environmentName": "Sandbox-110626",
             "tenant": "4c2528a0-415b-42d4-89cb-4ebd4f9bffd0",
             "breakOnError": "All",
             "breakOnRecordWrite": "None",
