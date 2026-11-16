@@ -395,6 +395,21 @@ pageextension 50011 "sales order subform EXt" extends "Sales Order Subform"
                 end;
             }
         }
+        addlast(processing)
+        {
+            action(CreatePurchaseOrder)
+            {
+                Caption = 'Create Purchase Order';
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    SalesLine: Record "Sales Line";
+                begin
+                    CurrPage.SetSelectionFilter(SalesLine);
+                    Report.RunModal(Report::"Create Purchase Order From SO", true, false, SalesLine);
+                end;
+            }
+        }
     }
 
     trigger OnAfterGetRecord()
